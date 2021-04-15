@@ -19,26 +19,26 @@ public class listTeman {
     }
     public void hapusTeman() {
         String temanYangDibuang = this.daftarTeman.pop();
-        System.out.println(temanYangDibuang + " dihapus dari pertemanan karena utang terus (POP)");
+        System.out.println("Berhasil menghapus " + temanYangDibuang + " dari daftar pertemanan (POP)");
     }
     public void temanPalingBaru() {
         String temanBaru = this.daftarTeman.peek();
-        System.out.println(temanBaru + " Temen paling baru tapi sering utang (PEEK)");
+        System.out.println(temanBaru + " berhasil di tambahkan ke daftar pertemanan (PEEK)");
     }
     public void cariTeman(String namaTeman) {
         Integer pos = (Integer) daftarTeman.search(namaTeman);
         if(pos == -1) {
-            System.out.println(namaTeman + " dah gak bisa dikontak nih, punya temen baru kali ya (SEARCH)");
+            System.out.println(namaTeman + " tidak ada di daftar pertemanan (SEARCH)");
             return;
         }
-        System.out.println(namaTeman + " Masih bisa dikontak nih, masih temenan berati (SEARCH)");
+        System.out.println(namaTeman + " ada di daftar pertemanan (SEARCH)");
     }
     public boolean cekTeman() {
         if(this.daftarTeman.empty()) {
-            System.out.println("Lah pas butuh kok pada ilang nih temen (EMPTY)");
+            System.out.println("Anda belum memiliki list pertemanan (EMPTY)");
             return false;
         }
-        System.out.println("Tenang masih ada " + this.daftarTeman.size() + " teman (EMPTY)");
+        System.out.println("Nama teman di list anda " + this.daftarTeman.size() + " (EMPTY)");
         return true;
     }
 }
