@@ -1,25 +1,21 @@
 package UTS;
 
-
-
 import java.util.Scanner;
 import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) {
-        Stack<Character> leftChar =  new Stack<Character>();
-        Stack<Character> rightChar =  new Stack<Character>();
-
+        Stack<Character> firstStack =  new Stack<Character>();
+        Stack<Character> secStack =  new Stack<Character>();
         boolean cekValidasi = true;
         boolean isInRight = false;
         boolean cekOperator = false;
         boolean cekValidasiKarakter = false;
         boolean cekValidasiOperator = false;
-
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Masukan persamaan = ");
-        String equation = scanner.nextLine();
-        char[] dataCharArray = equation.toCharArray();
+        System.out.print("Masukan data = ");
+        String dataInput = scanner.nextLine();
+        char[] dataCharArray = dataInput.toCharArray();
 
         for (int i = 0; i < dataCharArray.length; i++) {
             char dataChar = dataCharArray[i];
@@ -42,16 +38,16 @@ public class Main {
                 continue;
             }
             if(!isInRight) {
-                leftChar.add(dataChar);
+                firstStack.add(dataChar);
             }
             if(isInRight) {
-                rightChar.add(dataChar);
-                if(leftChar.size() == 0) {
+                secStack.add(dataChar);
+                if(firstStack.size() == 0) {
                     cekValidasi = false;
-                } else if(leftChar.size() > 1 && i == (dataCharArray.length - 1)) {
+                } else if(firstStack.size() > 1 && i == (dataCharArray.length - 1)) {
                     cekValidasi = false;
                 } else {
-                    leftChar.pop();
+                    firstStack.pop();
                 }
             }
         }
